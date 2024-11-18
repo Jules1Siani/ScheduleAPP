@@ -1,28 +1,25 @@
-// src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common'; // Importer CommonModule
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { TaskListComponent } from './task-list/task-list.component';
+import { PriorityBadgeComponent } from './priority-badge/priority-badge.component';
 import { AddTaskComponent } from './add-task/add-task.component';
-import { AppRoutingModule } from './app-routing.module';
-import { TaskService } from './task.service';
+import { TaskListComponent } from './task-list/task-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent, // Include AppComponent here
-    TaskListComponent,
-    AddTaskComponent
+    AppComponent,
+    PriorityBadgeComponent,
+    AddTaskComponent,
+    TaskListComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    CommonModule,
-    AppRoutingModule
+    CommonModule, // Ajouter CommonModule ici
+    FormsModule
   ],
-  providers: [TaskService],
-  bootstrap: [AppComponent] // Bootstrap AppComponent here
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { TaskService } from '../task.service';
-import { Task } from '../task.model';
 
 @Component({
   selector: 'app-add-task',
@@ -8,24 +6,23 @@ import { Task } from '../task.model';
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent {
-  title = '';
-  description = '';
-  dueDate = '';
-  priority: 'Low' | 'Medium' | 'High' = 'Low';
-
-  constructor(private taskService: TaskService) {}
+  title = ''; // Propriété pour le champ Title
+  description = ''; // Propriété pour le champ Description
+  dueDate = ''; // Propriété pour le champ Due Date
+  priority: 'Low' | 'Medium' | 'High' = 'Low'; // Propriété pour le champ Priority
 
   addTask() {
-    const newTask: Task = {
-      id: 0, // ID will be set in the service
+    console.log('Task Added:', {
       title: this.title,
       description: this.description,
-      dueDate: new Date(this.dueDate),
+      dueDate: this.dueDate,
       priority: this.priority
-    };
-    this.taskService.addTask(newTask);
+    });
 
-    // Clear the form
+    this.resetForm(); // Réinitialiser le formulaire après l'ajout
+  }
+
+  resetForm() {
     this.title = '';
     this.description = '';
     this.dueDate = '';
